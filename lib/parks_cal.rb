@@ -1,5 +1,2 @@
-require "parks_cal/version"
-
-module ParksCal
-  # Your code goes here...
-end
+require_relative "./parks_cal/version"
+require_relative './parks_cal/cli'
