@@ -19,7 +19,7 @@ place select by number.
 or exit
 
 
-Alcatraz Island
+1. Alcatraz Island
 Cabrillo
 Castle Mountains
 Channel Islands
