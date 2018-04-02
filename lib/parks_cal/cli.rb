@@ -5,6 +5,8 @@ class ParksCal::CLI
 
     def call
         puts "Welcome, Here is a list of popular National parks and Monuments around California"
+        parks = ParksCal::Scrape.new
+        parks.scrape_names
         list_parks_monuments
         leave_msg
     end
@@ -12,12 +14,13 @@ class ParksCal::CLI
     def list_parks_monuments
         puts "Select a number for more info or exit"
         @places = ParksCal::Place.all
+        @places
         input = nil
         while input != 'exit'
             input = gets.strip
                case input
                when '1'
-                   puts "Alcratraz info"
+                  puts "object 1"
                when '2'
                    puts "cabrillo info"
                when '3'

@@ -6,11 +6,12 @@ class ParksCal::Place
 
     @@all = []
 
-    def initialize(name, address, info, opening_hrs)
+    def initialize(index, name)
+        @index = index
         @name = name
-        @address = address
-        @info = info
-        @opening_hrs = opening_hrs
+        # @address = address
+        # @info = info
+        # @opening_hrs = opening_hrs
         @@all << self
         #binding.pry
     end
