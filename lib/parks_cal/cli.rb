@@ -5,8 +5,13 @@ class ParksCal::CLI
 
     def call
         puts "Welcome, Here is a list of popular National parks and Monuments around California"
+        sleep 3
+        puts "This will only take a second."
+        sleep 3
+        puts "Scraping the web..."
         parks = ParksCal::Scrape.new
         parks.scrape_names
+        parks.scrape_data
         list_parks_monuments
         leave_msg
     end
@@ -14,7 +19,11 @@ class ParksCal::CLI
     def list_parks_monuments
         puts "Select a number for more info or exit"
         @places = ParksCal::Place.all
-        @places
+        binding.pry
+        @places.each do |place|
+            puts "#{place.index}. #{place.name}"
+        end
+        puts "Where would you like to go?"
         input = nil
         while input != 'exit'
             input = gets.strip

@@ -28,21 +28,16 @@ class ParksCal::Scrape
         end
         parks
         #p = ParksCal::Scrape.new
-        #@park_name = parks.reject(&:empty?)# Find out why .css was returning empty elements
-        # binding.pry
-        # Maybe change method to create instance objects of each location in order for it to be easier to work with. Set the instance's parks_site_url then use that object to scrape each page in the #scrape_data and call Place.new in the objects on each iteration. Make @@all_names contains objects with two attrs to make it easy on ya.
     end
 
     def scrape_data
-        binding.pry
         self.scrape_names.each do |p|
-            binding.pry
             park_array = p.split(",")
-            binding.pry
-            html = open(park_array[2])
-            park_info_url = Nokogiri::HTML(html)
-            binding.pry
-            # adress = park_info_url.search("div.itempropdress").text
+            park_info_url = Nokogiri::HTML(open(park_array[2]))
+            address = park_info_url.at("//div[@itemprop = 'address']").children.text.squeeze
+            directions = park_info_url.search("div.directions").text
+            opening_hrs = park_info_url.search("div.HoursSection ul").text
+            ParksCal::Place.new(park_array[0], park_array[1], address, directions, opening_hrs)
         end
     end
 

@@ -2,26 +2,20 @@ require 'pry'
 
 class ParksCal::Place
 
-    attr_accessor :name, :address, :info, :opening_hrs
+    attr_accessor :index, :name, :address, :info, :opening_hrs
 
     @@all = []
 
-    def initialize(index, name)
+    def initialize(index, name, address, directions, opening_hrs)
         @index = index
         @name = name
-        # @address = address
-        # @info = info
-        # @opening_hrs = opening_hrs
+        @address = address
+        @directions = directions
+        @opening_hrs = opening_hrs
         @@all << self
-        #binding.pry
     end
 
      def self.all
          @@all
-        # puts "1. Alcatraz Island"
-        # puts "2. Cabrillo"
-        # puts "3. Castle Mountains"
-        # puts "4. Channel Islands"
-        # puts "5. Death Valley"
      end
 end
