@@ -9,9 +9,9 @@ class ParksCal::CLI
         parks.scrape_data
         puts "Welcome!!!"
         sleep 1
-        puts "There are many beautiful places to visit around around California."
+        puts "There are many beautiful places to visit around California."
         sleep 1
-        puts "Here is a list of popular National parks and Monuments around California."
+        puts "Here is a list of popular national parks and monuments of California."
         sleep 3
         parks_selector
         leave_msg
@@ -42,7 +42,7 @@ class ParksCal::CLI
 
     def more_info(place)
         puts "#{place.name} sounds great!"
-        puts "Would you like more info? Enter the appropriate number or exit."
+        puts "Would you like more info? enter the appropriate number or exit."
 
         if place.directions != nil
             puts "1. Address"
@@ -67,7 +67,7 @@ class ParksCal::CLI
                     puts "#{place.directions}"
                 end
             else
-                puts "Please select a number between 1 and 3 or exit"
+                puts "Enter the appropriate number or exit."
             end
         end
     end

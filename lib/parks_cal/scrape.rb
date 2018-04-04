@@ -41,7 +41,6 @@ class ParksCal::Scrape
             if opening_hrs == ""
                 opening_hrs = "Opening hours not available."
             end
-
             ParksCal::Place.new(park_array[0], park_array[1], address, directions, opening_hrs)
         end
     end
