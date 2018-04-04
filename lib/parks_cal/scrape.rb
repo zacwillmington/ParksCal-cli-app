@@ -3,9 +3,7 @@ require "nokogiri"
 require "pry"
 
 class ParksCal::Scrape
-    attr_accessor :parks_site_url, :park_name, :park_info_url
-
-    @@all_parks = []
+    attr_accessor :parks_site_url
 
     def initialize
         @parks_site_url = "https://www.nps.gov/state/ca/list.htm?program=parks"
@@ -27,7 +25,6 @@ class ParksCal::Scrape
             end
         end
         parks
-        #p = ParksCal::Scrape.new
     end
 
     def scrape_data
@@ -41,11 +38,4 @@ class ParksCal::Scrape
         end
     end
 
-    def self.all
-        @@all_parks
-    end
-
 end
-
-# SELECTING a ELEMENTS
-# #anch_11, #anch_16 #anch_21, #anch_11

@@ -1,48 +1,69 @@
 class ParksCal::CLI
 
-
     attr_accessor :places
 
     def call
-        puts "Welcome, Here is a list of popular National parks and Monuments around California"
-        sleep 3
-        puts "This will only take a second."
-        sleep 3
-        puts "Scraping the web..."
         parks = ParksCal::Scrape.new
+        puts "Welcome, Here is a list of popular National parks and Monuments around California"
         parks.scrape_names
+        puts "This will only take a second."
         parks.scrape_data
-        list_parks_monuments
+        puts "Scraping the web..."
+        parks_selector
         leave_msg
     end
-
-    def list_parks_monuments
+    def list_parks
         puts "Select a number for more info or exit"
+        puts "Where would you like to go?"
         @places = ParksCal::Place.all
-        binding.pry
         @places.each do |place|
             puts "#{place.index}. #{place.name}"
         end
-        puts "Where would you like to go?"
+
+    end
+
+    def parks_selector
+        list_parks
         input = nil
         while input != 'exit'
+            list_parks
             input = gets.strip
-               case input
-               when '1'
-                  puts "object 1"
-               when '2'
-                   puts "cabrillo info"
-               when '3'
-                   puts "Castle info"
-               when '4'
-                   puts "info"
-               when '5'
-                   puts "info"
+            int = input.to_i
+            if int.between?(1,34)
+               more_info(@places[int - 1])
                else
-                   puts "Please select a number between 1 and 5 or exit"
+                   puts "Please select a number between 1 and 34 or exit"
                end
        end
     end
+
+
+    def more_info(place)
+        puts "#{place.name}"
+        puts "What would you like more info on?"
+        puts "1. Address."
+        puts "2. Directions."
+        puts "3. Opening hours."
+        puts "Or exit"
+        input = nil
+
+        while input != 'exit'
+            input = gets.strip
+            int = input.to_i
+            if int.between?(1,3)
+                if input == "1"
+                    puts "#{place.address}"
+                elsif input == "2"                        binding.pry
+                    puts "#{place.directions}"
+                elsif == "3"
+                    puts "#{place.opening_hrs}"
+                 else
+                puts "Please select a number between 1 and 3 or exit"
+            end
+        end
+        end
+    end
+
 
     def leave_msg
         puts "Thanks for coming"
