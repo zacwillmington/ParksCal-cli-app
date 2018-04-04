@@ -2,7 +2,7 @@ require 'pry'
 
 class ParksCal::Place
 
-    attr_accessor :index, :name, :address, :info, :opening_hrs
+    attr_accessor :index, :name, :address, :directions, :opening_hrs
 
     @@all = []
 

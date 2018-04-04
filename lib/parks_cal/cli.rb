@@ -5,10 +5,10 @@ class ParksCal::CLI
     def call
         parks = ParksCal::Scrape.new
         puts "Welcome, Here is a list of popular National parks and Monuments around California"
-        parks.scrape_names
         puts "This will only take a second."
-        parks.scrape_data
+        parks.scrape_names
         puts "Scraping the web..."
+        parks.scrape_data
         parks_selector
         leave_msg
     end
@@ -23,7 +23,6 @@ class ParksCal::CLI
     end
 
     def parks_selector
-        list_parks
         input = nil
         while input != 'exit'
             list_parks
@@ -53,14 +52,14 @@ class ParksCal::CLI
             if int.between?(1,3)
                 if input == "1"
                     puts "#{place.address}"
-                elsif input == "2"                        binding.pry
+                elsif input == "2"
                     puts "#{place.directions}"
-                elsif == "3"
+                elsif input == "3"
                     puts "#{place.opening_hrs}"
-                 else
-                puts "Please select a number between 1 and 3 or exit"
+                else
+                     puts "Please select a number between 1 and 3 or exit"
+                end
             end
-        end
         end
     end
 

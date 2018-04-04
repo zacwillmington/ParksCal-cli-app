@@ -32,7 +32,7 @@ class ParksCal::Scrape
             park_array = p.split(",")
             park_info_url = Nokogiri::HTML(open(park_array[2]))
             address = park_info_url.at("//div[@itemprop = 'address']").children.text.squeeze
-            directions = park_info_url.search("div.directions").text
+            directions = park_info_url.search("div.directions  span").text
             opening_hrs = park_info_url.search("div.HoursSection ul").text
             ParksCal::Place.new(park_array[0], park_array[1], address, directions, opening_hrs)
         end
