@@ -1,6 +1,6 @@
 # ParksCal
 
-Welcome to parks_cal gem. This gem supplies you wih information from "www.nps.gov" about 34 National parks and Monuments located throughout California. On each of these Parks and Monuments you can find information like: address, opening hours and directions from near by cities.
+Welcome to parks_cal gem. This gem supplies you with information from "www.nps.gov" about 34 national parks and monuments located throughout California. On each of these parks and monuments you can find information like: address, opening hours and directions from near by cities.
 
 
 ## Installation
@@ -21,7 +21,7 @@ Or install it yourself as:
 
 ## Usage
 
-This gem lists all National parks and Monuments in California. You can select a location based on the appropriate index number, then select one of the three more info options. You can got back to a previous step by typing "exit" and by typing "exit" again you can exit the gem.
+This gem lists all national parks and monuments in California. You can select a location based on the appropriate index number, then select one of the three more info options. You can got back to a previous step by typing "exit" and by typing "exit" again you can exit the gem.
 
 ## Development
 
