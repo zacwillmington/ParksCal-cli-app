@@ -36,11 +36,12 @@ class ParksCal::Scrape
             opening_hrs = park_info_url.search("div.HoursSection ul").text
 
             if directions == ""
-             directions = nil
+             directions = "Directions not available."
             end
             if opening_hrs == ""
                 opening_hrs = "Opening hours not available."
             end
+            directions = directions.gsub("Directions Details", "")
             ParksCal::Place.new(park_array[0], park_array[1], address, directions, opening_hrs)
         end
     end

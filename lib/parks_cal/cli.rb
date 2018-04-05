@@ -44,15 +44,9 @@ class ParksCal::CLI
         puts "#{place.name} sounds great!"
         puts "Would you like more info? enter the appropriate number or exit."
 
-        if place.directions != nil
-            puts "1. Address"
-            puts "2. Opening hours"
-            puts "3. Directions"
-        else
-            puts "1. Address"
-            puts "2. Opening hours"
-        end
-
+        puts "1. Address"
+        puts "2. Opening hours"
+        puts "3. Directions"
         input = nil
 
         while input != 'exit'
@@ -63,7 +57,7 @@ class ParksCal::CLI
                     puts "#{place.address}"
                 elsif input == "2"
                     puts "#{place.opening_hrs}"
-                elsif input == "3" && place.directions != nil
+                elsif input == "3"
                     puts "#{place.directions}"
                 end
             else
