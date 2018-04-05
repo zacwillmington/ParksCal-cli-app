@@ -1,5 +1,4 @@
 #!/usr/bin/env ruby
 
 require './lib/parks_cal'
-
-ParksCal::CLI.new.call 
+ParksCal::CLI.new.call

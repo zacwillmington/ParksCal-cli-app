@@ -7,14 +7,18 @@ class ParksCal::CLI
         parks = ParksCal::Scrape.new
         parks.scrape_names
         parks.scrape_data
+        opening_greeting
+        parks_selector
+        leave_msg
+    end
+
+    def opening_greeting
         puts "Welcome!!!"
         sleep 1
         puts "There are many beautiful places to visit around California."
         sleep 1
         puts "Here is a list of popular national parks and monuments of California."
         sleep 3
-        parks_selector
-        leave_msg
     end
 
     def list_parks
