@@ -57,11 +57,11 @@ class ParksCal::CLI
             input = gets.strip
             int = input.to_i
             if int.between?(1,3)
-                if input == "1"
+                if int == 1
                     puts "#{place.address}"
-                elsif input == "2"
+                elsif int == 2
                     puts "#{place.opening_hrs}"
-                elsif input == "3"
+                elsif int == 3
                     puts "#{place.directions}"
                 end
             else
