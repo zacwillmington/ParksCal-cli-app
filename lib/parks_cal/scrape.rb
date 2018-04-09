@@ -15,7 +15,6 @@ class ParksCal::Scrape
         doc = Nokogiri::HTML(html)
         park_names = doc.search("li.clearfix")
         index = 1
-        parks = []
         park_names.each do |name|
             park_name = name.css("h3 a").text
             info_url = name.at_css('li a:contains(" Basic Information")')
