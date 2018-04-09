@@ -36,9 +36,9 @@ class ParksCal::CLI
             list_parks
             input = gets.strip
             int = input.to_i
-            if int.between?(1,34)
+            if int.between?(1,@places.size)
                more_info(@places[int - 1])
-           elsif !int.between?(1,34) && input != "exit"
+           elsif !int.between?(1,@places.size) && input != "exit"
                puts "Please select a number between 1 and 34 or exit."
             end
        end

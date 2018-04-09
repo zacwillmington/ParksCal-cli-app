@@ -3,11 +3,11 @@ require "nokogiri"
 require "pry"
 
 class ParksCal::Scrape
-    attr_accessor :parks_site_url, :park_names_urls
+    attr_accessor :parks_site_url, :park_names_info_urls
 
     def initialize
         @parks_site_url = "https://www.nps.gov/state/ca/list.htm?program=parks"
-        @park_names_urls = []
+        @park_names_info_urls = []
     end
 
     def scrape_names
@@ -21,15 +21,14 @@ class ParksCal::Scrape
             info_url = name.at_css('li a:contains(" Basic Information")')
 
             if park_name != "" && info_url
-                @park_names_urls << "#{index},#{park_name},#{info_url["href"]}"
+                @park_names_info_urls << "#{index},#{park_name},#{info_url["href"]}"
                 index += 1
             end
         end
-         # make instance var @park_names_urls
     end
 
     def scrape_data
-        @park_names_urls.each do |p| # Change to @park_names_urls
+        @park_names_info_urls.each do |p|
             park_array = p.split(",")
             park_info_url = Nokogiri::HTML(open(park_array[2]))
             address = park_info_url.at("//div[@itemprop = 'address']").children.text.squeeze
