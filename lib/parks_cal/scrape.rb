@@ -1,7 +1,3 @@
-require "open-uri"
-require "nokogiri"
-require "pry"
-
 class ParksCal::Scrape
     attr_accessor :parks_site_url, :park_names_info_urls
 
@@ -14,14 +10,12 @@ class ParksCal::Scrape
         html = open(@parks_site_url)
         doc = Nokogiri::HTML(html)
         park_names = doc.search("li.clearfix")
-        index = 1
-        park_names.each do |name|
+        park_names.each_with_index do |name, index|
             park_name = name.css("h3 a").text
             info_url = name.at_css('li a:contains(" Basic Information")')
 
             if park_name != "" && info_url
-                @park_names_info_urls << "#{index},#{park_name},#{info_url["href"]}"
-                index += 1
+                @park_names_info_urls << "#{index + 1 },#{park_name},#{info_url["href"]}"
             end
         end
     end
@@ -34,7 +28,7 @@ class ParksCal::Scrape
             directions = park_info_url.search("div.directions span").text
             opening_hrs = park_info_url.search("div.HoursSection ul").text
 
-            if directions == ""
+            if directions.empty?
              directions = "Directions not available."
             end
             if opening_hrs == ""

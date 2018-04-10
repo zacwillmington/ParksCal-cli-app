@@ -39,7 +39,7 @@ class ParksCal::CLI
             if int.between?(1,@places.size)
                more_info(@places[int - 1])
            elsif !int.between?(1,@places.size) && input != "exit"
-               puts "Please select a number between 1 and 34 or exit."
+               puts "Please select a number between 1 and #{@places.size} or exit."
             end
        end
     end

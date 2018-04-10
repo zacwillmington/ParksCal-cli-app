@@ -2,6 +2,7 @@ PATH
   remote: .
   specs:
     parks_cal (0.1.0)
+      nokogiri
 
 GEM
   remote: https://rubygems.org/
@@ -21,9 +22,8 @@ PLATFORMS
 
 DEPENDENCIES
   bundler (~> 1.16)
-  nokogiri (~> 1.8.2)
   parks_cal!
-  pry (~> 0.11.3)
+  pry
   rake (~> 10.0)
 
 BUNDLED WITH
